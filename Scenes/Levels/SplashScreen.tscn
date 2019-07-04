@@ -1,0 +1,154 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/SplashScreen.gd" type="Script" id=1]
+[ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://GFX/Interface/PNG/metalPanel_blue.png" type="Texture" id=3]
+[ext_resource path="res://GFX/logo.png" type="Texture" id=4]
+
+[node name="SplashScreen" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = -2.0
+theme = ExtResource( 2 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_left = 340.0
+margin_top = 160.0
+margin_right = 940.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 600, 400 )
+texture = ExtResource( 3 )
+patch_margin_left = 12
+patch_margin_top = 40
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="logo" type="Sprite" parent="CenterContainer/NinePatchRect"]
+position = Vector2( 309, 114 )
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+margin_left = 130.0
+margin_top = 200.0
+margin_right = 200.0
+margin_bottom = 304.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4"]
+margin_right = 170.0
+margin_bottom = 188.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer"]
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer"]
+margin_right = 170.0
+margin_bottom = 60.0
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Play Tutorial"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 64.0
+margin_right = 170.0
+margin_bottom = 124.0
+
+[node name="Level1Button" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer2"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Level 1"
+
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 128.0
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="Level2Button" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer4"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Level 2"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CenterContainer/NinePatchRect"]
+margin_left = 320.0
+margin_top = 200.0
+margin_right = 200.0
+margin_bottom = 392.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5"]
+margin_right = 170.0
+margin_bottom = 188.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer"]
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer"]
+margin_right = 170.0
+margin_bottom = 60.0
+
+[node name="Level3Button" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer3"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Level 3"
+
+[node name="CenterContainer5" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 64.0
+margin_right = 170.0
+margin_bottom = 124.0
+
+[node name="Level4Button" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer5"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Level 4"
+
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 128.0
+margin_right = 170.0
+margin_bottom = 188.0
+
+[node name="QuitButton" type="Button" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer4"]
+margin_right = 170.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 170, 60 )
+text = "Quit Game"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5"]
+margin_top = 192.0
+margin_right = 170.0
+margin_bottom = 192.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer3"]
+margin_right = 170.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer3/CenterContainer"]
+margin_left = 85.0
+margin_right = 85.0
+columns = 2
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer/TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer2/Level1Button" to="." method="_on_Level1Button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer4/VBoxContainer/CenterContainer/GridContainer/CenterContainer4/Level2Button" to="." method="_on_Level2Button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer3/Level3Button" to="." method="_on_Level3Button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer5/Level4Button" to="." method="_on_Level4Button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/VBoxContainer5/VBoxContainer/CenterContainer/GridContainer/CenterContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]

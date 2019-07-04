@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Constance.ogg-28bb3e845e76d07b28afee4eb7b41cd1.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Constance.ogg"
+dest_files=[ "res://.import/Constance.ogg-28bb3e845e76d07b28afee4eb7b41cd1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

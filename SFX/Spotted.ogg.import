@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Spotted.ogg-63999e1aa7b6f1c1884b6f500e9a75a2.oggstr"
+
+[deps]
+
+source_file="res://SFX/Spotted.ogg"
+dest_files=[ "res://.import/Spotted.ogg-63999e1aa7b6f1c1884b6f500e9a75a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

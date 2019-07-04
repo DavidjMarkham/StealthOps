@@ -1,0 +1,172 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerTL.png" type="Texture" id=1]
+[ext_resource path="res://Theme.tres" type="Theme" id=2]
+[ext_resource path="res://GFX/Interface/PNG/dot_shadow.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Interface/PNG/dotYellow.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/SuspicionMeter.gd" type="Script" id=5]
+[ext_resource path="res://GFX/Interface/PNG/dotRed.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/AlarmMeter.gd" type="Script" id=7]
+[ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerBR.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/DisguiseDisplay.gd" type="Script" id=9]
+[ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerBL.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/LootContainer.gd" type="Script" id=11]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=12]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="SuspicionContainer" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -286.0
+margin_top = -122.0
+margin_right = -20.0
+margin_bottom = -20.0
+texture = ExtResource( 1 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="SuspicionContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="SuspicionContainer/CenterContainer"]
+margin_left = 63.0
+margin_top = 21.0
+margin_right = 203.0
+margin_bottom = 81.0
+
+[node name="HSplitContainer" type="HBoxContainer" parent="SuspicionContainer/CenterContainer/VSplitContainer"]
+margin_right = 140.0
+margin_bottom = 24.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="SuspicionContainer/CenterContainer/VSplitContainer/HSplitContainer"]
+margin_right = 112.0
+margin_bottom = 23.0
+theme = ExtResource( 2 )
+text = "Suspicion"
+
+[node name="SuspicionMeter" type="TextureProgress" parent="SuspicionContainer/CenterContainer/VSplitContainer/HSplitContainer" groups=[
+"SuspicionMeter",
+]]
+margin_left = 116.0
+margin_right = 140.0
+margin_bottom = 24.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+fill_mode = 4
+script = ExtResource( 5 )
+
+[node name="HSplitContainer2" type="HBoxContainer" parent="SuspicionContainer/CenterContainer/VSplitContainer"]
+margin_top = 36.0
+margin_right = 140.0
+margin_bottom = 60.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="SuspicionContainer/CenterContainer/VSplitContainer/HSplitContainer2"]
+margin_right = 73.0
+margin_bottom = 23.0
+theme = ExtResource( 2 )
+text = "Alarm"
+
+[node name="AlarmMeter" type="TextureProgress" parent="SuspicionContainer/CenterContainer/VSplitContainer/HSplitContainer2" groups=[
+"Alarm",
+"SuspicionMeter",
+]]
+margin_left = 77.0
+margin_right = 101.0
+margin_bottom = 24.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 6 )
+fill_mode = 4
+script = ExtResource( 7 )
+
+[node name="DisguiseContainer" type="NinePatchRect" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 314.0
+margin_bottom = 120.0
+theme = ExtResource( 2 )
+texture = ExtResource( 8 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DisguiseContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+
+[node name="Label" type="Label" parent="DisguiseContainer/VBoxContainer"]
+margin_right = 284.0
+margin_bottom = 23.0
+text = "Disguises"
+
+[node name="DisguiseDisplay" type="ItemList" parent="DisguiseContainer/VBoxContainer" groups=[
+"DisguiseDisplay",
+]]
+margin_top = 27.0
+margin_right = 284.0
+margin_bottom = 90.0
+size_flags_vertical = 3
+max_columns = 7
+same_column_width = true
+icon_scale = 0.5
+script = ExtResource( 9 )
+
+[node name="LootContainer" type="NinePatchRect" parent="." groups=[
+"interface",
+"TargetNotifier",
+]]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -286.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 120.0
+theme = ExtResource( 2 )
+texture = ExtResource( 10 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="LootContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 149.0
+margin_bottom = 43.0
+text = "Objectives"
+
+[node name="LootList" type="ItemList" parent="LootContainer"]
+margin_left = 16.0
+margin_top = 44.0
+margin_right = 264.0
+margin_bottom = 84.0
+max_columns = 5
+same_column_width = true
+icon_scale = 0.5
+fixed_icon_size = Vector2( 64, 64 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -279.0
+margin_right = 256.0
+
+[node name="Joystick" parent="MarginContainer" instance=ExtResource( 12 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 256.0
+margin_bottom = 279.0
+[connection signal="item_selected" from="DisguiseContainer/VBoxContainer/DisguiseDisplay" to="DisguiseContainer/VBoxContainer/DisguiseDisplay" method="_on_DisguiseDisplay_item_selected"]

@@ -24,12 +24,12 @@ func _ready():
 	alert_exclamation = exclamation_alert.instance()
 	alert_exclamation.position = global_position
 	alert_exclamation.visible = false
-	get_node("/root").add_child(alert_exclamation)
+	get_parent().get_parent().call_deferred("add_child",alert_exclamation)
 	
 	alert_question = question_alert.instance()
 	alert_question.position = global_position
 	alert_question.visible = false
-	get_node("/root").add_child(alert_question)
+	get_parent().get_parent().call_deferred("add_child",alert_question)
 
 func _process(delta):
 	if Player_is_in_FOV_TOLERANCE() and Player_is_in_LOS():

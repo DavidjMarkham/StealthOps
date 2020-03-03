@@ -26,7 +26,7 @@ onready var target_capture = load('res://Scenes/TargetCapture.tscn')
 
 func _ready():
 	target_capture_progress = target_capture.instance()
-	get_node("/root").add_child(target_capture_progress)
+	get_parent().call_deferred("add_child",target_capture_progress)
 	# Load sounds
 	sfx_hit = load("res://SFX/Hit.ogg")	 
 	sfx_hit.set_loop(false)
@@ -43,7 +43,7 @@ func _process(delta):
 			owner.find_node("AudioStreamPlayer").play(0)	
 			var blood_pool = blood_splatter.instance()
 			blood_pool.position = position
-			get_node("/root").add_child(blood_pool)
+			get_parent().call_deferred("add_child",blood_pool)
 			Global.Player.killed_target()			
 			get_tree().call_group("TargetNotifier", "target_killed")			
 			queue_free()			

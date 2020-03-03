@@ -2,7 +2,7 @@ extends "res://Scripts/PlayerDetection.gd"
 
 const GUARD_ROTATE_SPEED = 300
 const GUARD_ROTATE_SPEED_TARGET = 300
-const HUNT_MOVE_MULTIPLIER = 1
+const HUNT_MOVE_MULTIPLIER = 2
 const GUARD_SEEK_PATH_WAIT = .25
 
 var motion = Vector2()
@@ -48,13 +48,13 @@ func _ready():
 	alert_exclamation = exclamation_alert.instance()
 	alert_exclamation.position = position
 	alert_exclamation.visible = false
-	get_node("/root").add_child(alert_exclamation)
+	get_parent().call_deferred("add_child",alert_exclamation)
 	
 	alert_question = question_alert.instance()
 	alert_question.position = position
 	alert_question.visible = false
-	get_node("/root").add_child(alert_question)
-	
+	get_parent().call_deferred("add_child",alert_question)
+		
 	make_path()
 
 
@@ -87,13 +87,14 @@ func _process(delta):
 			rotation_degrees = rad2deg(Player.position.angle_to_point(position))		
 		
 		#look_at(Player.position)
-		if(!player_in_sights):
-			player_in_sights = true
-			time_till_next_shot = randf()*1 + .25
-		time_till_next_shot -= delta
-		if(time_till_next_shot<=0):
-			fire_shot()
-			time_till_next_shot = randf()*1 + .25
+		if(alert_exclamation.visible):
+			if(!player_in_sights):
+				player_in_sights = true
+				time_till_next_shot = randf()*1 + .25
+			time_till_next_shot -= delta
+			if(time_till_next_shot<=0):
+				fire_shot()
+				time_till_next_shot = randf()*1 + .25
 		
 
 
@@ -184,6 +185,7 @@ func alarm_sounded():
 		#if $Timer.is_stopped():
 		#	$Timer.start()
 		go_after_player	= true
+		make_path()
 	
 func alarm_ended():
 	if(seeking_player):

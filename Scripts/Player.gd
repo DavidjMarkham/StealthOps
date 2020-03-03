@@ -139,7 +139,7 @@ func player_hit():
 	health -= 10
 	var blood_pool = blood_splatter.instance()
 	blood_pool.position = position
-	get_node("/root").add_child(blood_pool)
+	get_parent().call_deferred("add_child",blood_pool)
 	if(health == 0):		
 		var t = Timer.new()
 		t.set_wait_time(.25)

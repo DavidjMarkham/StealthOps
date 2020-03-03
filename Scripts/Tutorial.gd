@@ -5,18 +5,28 @@ var briefcase_used = false
 
 func _ready():
 	add_to_group("interface")
-	text = get_json()
+	text = {
+		"0":
+		  "Welcome recruit. Please move to the next objective marker. Use the W-A-S-D keys to move.",
+		"1":
+		  "You'll want to stay in the shadows, security cameras and guards will use search lights to spot you.",
+		"2":
+		  "Use a disguise to hide from the light. Touch the disguise in the top left of the screen.",
+		"3":
+		  "There's a briefcase ahead.  Pick it up by walking over it.",
+		"4":
+		  "Briefcases are optional objectives, grab them if you can but don't risk the operation.",
+		"5":
+		  "The main objective is to assassinate the target. Assassinate the target by standing close to them for a few seconds.",
+		"6":
+		  "Great work recruit! Proceed to the extraction point."
+		
+		}
 	update_pointer_position(0)
 	$TutorialGUI/Popup.show()
 	$GUI/DisguiseContainer.visible = false
 	
 
-func get_json():
-	var file = File.new()
-	file.open(Global.tutorial_messages, file.READ)
-	var content = file.get_as_text()
-	file.close()
-	return parse_json(content)
 
 
 func update_pointer_position(number):
